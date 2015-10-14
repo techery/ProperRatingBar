@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProperRatingBar" >
+
+        <!-- General attrs -->
+        <attr name="totalTicks" format="integer" />
+        <attr name="selectedTicks" format="integer" />
+        <attr name="usable" format="boolean" />
+
+        <!-- 'Symbolic-tick'-related attrs -->
+        <attr name="symbolicTick" format="string" />
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="symbolicTickNormalColor" format="reference|color" />
+        <attr name="symbolicTickSelectedColor" format="reference|color" />
+
+        <!-- 'Drawable-tick'-related attrs -->
+        <attr name="tickSideMargin" format="dimension" />
+        <attr name="tickNormalDrawable" format="reference" />
+        <attr name="tickSelectedDrawable" format="reference" />
+    </declare-styleable>
+
+    <item name="prb_child_tag_id" type="id" />
+</resources>

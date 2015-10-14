@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main"
+    >
+
+    <io.techery.properratingbar.ProperRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:selectedTicks="3"
+        app:symbolicTick="$"
+        app:symbolicTickNormalColor="@android:color/darker_gray"
+        app:symbolicTickSelectedColor="@android:color/holo_green_dark"
+        app:totalTicks="5"
+        />
+
+    <io.techery.properratingbar.ProperRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:selectedTicks="1"
+        app:symbolicTick="%"
+        app:symbolicTickNormalColor="#1fcc1e"
+        app:symbolicTickSelectedColor="#2e2c2c"
+        app:totalTicks="7"
+        />
+
+    <io.techery.properratingbar.ProperRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:selectedTicks="1"
+        app:symbolicTick="*"
+        app:symbolicTickNormalColor="#1fcc1e"
+        app:symbolicTickSelectedColor="#2e2c2c"
+        app:totalTicks="7"
+        />
+
+    <io.techery.properratingbar.ProperRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <io.techery.properratingbar.ProperRatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:selectedTicks="4"
+        app:tickNormalDrawable="@drawable/ic_star_normal"
+        app:tickSelectedDrawable="@drawable/ic_star_selected"
+        app:tickSideMargin="3dp"
+        app:totalTicks="7"
+        app:usable="true"
+        />
+
+    <Button
+        android:id="@+id/getRatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get rating"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/setRatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set rating 2"
+        android:textAllCaps="false"
+        />
+</LinearLayout>

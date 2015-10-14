@@ -1,0 +1,4 @@
+<resources>
+
+    <dimen name="prb_symbolic_tick_text_size">15sp</dimen>
+</resources>
