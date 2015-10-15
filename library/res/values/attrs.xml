@@ -15,7 +15,7 @@
         <attr name="symbolicTickSelectedColor" format="reference|color" />
 
         <!-- 'Drawable-tick'-related attrs -->
-        <attr name="tickSideMargin" format="dimension" />
+        <attr name="tickMargin" format="dimension" />
         <attr name="tickNormalDrawable" format="reference" />
         <attr name="tickSelectedDrawable" format="reference" />
     </declare-styleable>

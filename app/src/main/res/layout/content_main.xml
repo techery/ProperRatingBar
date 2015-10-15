@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:selectedTicks="3"
+        app:selectedTicks="4"
         app:symbolicTick="$"
         app:symbolicTickNormalColor="@android:color/darker_gray"
         app:symbolicTickSelectedColor="@android:color/holo_green_dark"
@@ -61,7 +61,7 @@
         app:selectedTicks="4"
         app:tickNormalDrawable="@drawable/ic_star_normal"
         app:tickSelectedDrawable="@drawable/ic_star_selected"
-        app:tickSideMargin="3dp"
+        app:tickMargin="3dp"
         app:totalTicks="7"
         app:usable="true"
         />
