@@ -41,6 +41,8 @@ public class ProperRatingBar extends LinearLayout {
     //
     private int rating;
 
+    private RatingListener listener;
+
     public ProperRatingBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -120,6 +122,7 @@ public class ProperRatingBar extends LinearLayout {
             selectedTicks = (int) v.getTag(R.id.prb_child_tag_id);
             rating = selectedTicks + 1;
             redrawChildren();
+            if (listener != null) listener.onRatePicked(rating);
         }
     };
 
@@ -152,6 +155,18 @@ public class ProperRatingBar extends LinearLayout {
     ///////////////////////////////////////////////////////////////////////////
     // them getters and setters methods
     ///////////////////////////////////////////////////////////////////////////
+
+    public RatingListener getListener() {
+        return listener;
+    }
+
+    public void setListener(RatingListener listener) {
+        this.listener = listener;
+    }
+
+    public void removeRatingListener() {
+        this.listener = null;
+    }
 
     public int getRating() {
         return rating;
