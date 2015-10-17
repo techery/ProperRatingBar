@@ -12,21 +12,24 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * * See {@link R.styleable#ProperRatingBar ProperRatingBar Attributes}
+ */
 public class ProperRatingBar extends LinearLayout {
 
     private static final int DF_TOTAL_TICKS = 5;
-    private static final int DF_SELECTED_TICKS = 3;
-    private static final boolean DF_USABLE = false;
-    private static final int DF_SYMBOLIC_TICK = R.string.prb_default_symbolic_string;
-    private static final int DF_SYMBOLIC_TEXT_SIZE_RES = R.dimen.prb_symbolic_tick_text_size;
+    private static final int DF_DEFAULT_TICKS = 3;
+    private static final boolean DF_CLICKABLE = false;
+    private static final int DF_SYMBOLIC_TICK_RES = R.string.prb_default_symbolic_string;
+    private static final int DF_SYMBOLIC_TEXT_SIZE_RES = R.dimen.prb_symbolic_tick_default_text_size;
     private static final int DF_SYMBOLIC_TEXT_STYLE = Typeface.NORMAL;
     private static final int DF_SYMBOLIC_TEXT_NORMAL_COLOR = Color.BLACK;
     private static final int DF_SYMBOLIC_TEXT_SELECTED_COLOR = Color.GRAY;
-    private static final int DF_TICK_PADDING = 1;
+    private static final int DF_TICK_SPACING_RES = R.dimen.prb_drawable_tick_default_spacing;
 
     private int totalTicks;
     private int lastSelectedTickIndex;
-    private boolean isUsable;
+    private boolean isClickable;
     private String symbolicTick;
     private int customTextSize;
     private int customTextStyle;
@@ -34,12 +37,10 @@ public class ProperRatingBar extends LinearLayout {
     private int customTextSelectedColor;
     private Drawable tickNormalDrawable;
     private Drawable tickSelectedDrawable;
-    private int tickPadding;
-    //
-    private boolean useSymbolicTick = false;
-    //
-    private int rating;
+    private int tickSpacing;
 
+    private boolean useSymbolicTick = false;
+    private int rating;
     private RatingListener listener;
 
     public ProperRatingBar(Context context, AttributeSet attrs) {
@@ -51,23 +52,26 @@ public class ProperRatingBar extends LinearLayout {
     private void init(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProperRatingBar);
         //
-        totalTicks = a.getInt(R.styleable.ProperRatingBar_totalTicks, DF_TOTAL_TICKS);
-        rating = a.getInt(R.styleable.ProperRatingBar_selectedTicks, DF_SELECTED_TICKS);
+        totalTicks = a.getInt(R.styleable.ProperRatingBar_prb_totalTicks, DF_TOTAL_TICKS);
+        rating = a.getInt(R.styleable.ProperRatingBar_prb_defaultRating, DF_DEFAULT_TICKS);
         if (rating > totalTicks) rating = totalTicks;
         lastSelectedTickIndex = rating - 1;
-        isUsable = a.getBoolean(R.styleable.ProperRatingBar_usable, DF_USABLE);
+        isClickable = a.getBoolean(R.styleable.ProperRatingBar_prb_clickable, DF_CLICKABLE);
         //
-        symbolicTick = a.getString(R.styleable.ProperRatingBar_symbolicTick);
-        if (symbolicTick == null) symbolicTick = context.getString(DF_SYMBOLIC_TICK);
+        symbolicTick = a.getString(R.styleable.ProperRatingBar_prb_symbolicTick);
+        if (symbolicTick == null) symbolicTick = context.getString(DF_SYMBOLIC_TICK_RES);
         customTextSize = a.getDimensionPixelSize(R.styleable.ProperRatingBar_android_textSize,
                 context.getResources().getDimensionPixelOffset(DF_SYMBOLIC_TEXT_SIZE_RES));
         customTextStyle = a.getInt(R.styleable.ProperRatingBar_android_textStyle, DF_SYMBOLIC_TEXT_STYLE);
-        customTextNormalColor = a.getColor(R.styleable.ProperRatingBar_symbolicTickNormalColor, DF_SYMBOLIC_TEXT_NORMAL_COLOR);
-        customTextSelectedColor = a.getColor(R.styleable.ProperRatingBar_symbolicTickSelectedColor, DF_SYMBOLIC_TEXT_SELECTED_COLOR);
+        customTextNormalColor = a.getColor(R.styleable.ProperRatingBar_prb_symbolicTickNormalColor,
+                DF_SYMBOLIC_TEXT_NORMAL_COLOR);
+        customTextSelectedColor = a.getColor(R.styleable.ProperRatingBar_prb_symbolicTickSelectedColor,
+                DF_SYMBOLIC_TEXT_SELECTED_COLOR);
         //
-        tickNormalDrawable = a.getDrawable(R.styleable.ProperRatingBar_tickNormalDrawable);
-        tickSelectedDrawable = a.getDrawable(R.styleable.ProperRatingBar_tickSelectedDrawable);
-        tickPadding = a.getDimensionPixelOffset(R.styleable.ProperRatingBar_tickMargin, DF_TICK_PADDING);
+        tickNormalDrawable = a.getDrawable(R.styleable.ProperRatingBar_prb_tickNormalDrawable);
+        tickSelectedDrawable = a.getDrawable(R.styleable.ProperRatingBar_prb_tickSelectedDrawable);
+        tickSpacing = a.getDimensionPixelOffset(R.styleable.ProperRatingBar_prb_tickSpacing,
+                context.getResources().getDimensionPixelOffset(DF_TICK_SPACING_RES));
         //
         if (tickNormalDrawable == null || tickSelectedDrawable == null) {
             useSymbolicTick = true;
@@ -98,7 +102,7 @@ public class ProperRatingBar extends LinearLayout {
         if (customTextStyle != 0) {
             tv.setTypeface(Typeface.DEFAULT, customTextStyle);
         }
-        if (isUsable) {
+        if (isClickable) {
             tv.setTag(R.id.prb_child_tag_id, position);
             tv.setOnClickListener(mTickClickedListener);
         }
@@ -107,8 +111,8 @@ public class ProperRatingBar extends LinearLayout {
 
     private void addDrawableChild(Context context, int position) {
         ImageView iv = new ImageView(context);
-        iv.setPadding(tickPadding, tickPadding, tickPadding, tickPadding);
-        if (isUsable) {
+        iv.setPadding(tickSpacing, tickSpacing, tickSpacing, tickSpacing);
+        if (isClickable) {
             iv.setTag(R.id.prb_child_tag_id, position);
             iv.setOnClickListener(mTickClickedListener);
         }

@@ -1,4 +1,5 @@
 <resources>
 
-    <dimen name="prb_symbolic_tick_text_size">15sp</dimen>
+    <dimen name="prb_symbolic_tick_default_text_size">15sp</dimen>
+    <dimen name="prb_drawable_tick_default_spacing">1dp</dimen>
 </resources>

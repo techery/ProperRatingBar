@@ -20,32 +20,32 @@
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:selectedTicks="4"
-        app:symbolicTick="$"
-        app:symbolicTickNormalColor="@android:color/darker_gray"
-        app:symbolicTickSelectedColor="@android:color/holo_green_dark"
-        app:totalTicks="5"
+        app:prb_defaultRating="4"
+        app:prb_symbolicTick="$"
+        app:prb_symbolicTickNormalColor="@android:color/darker_gray"
+        app:prb_symbolicTickSelectedColor="@android:color/holo_green_dark"
+        app:prb_totalTicks="5"
         />
 
     <io.techery.properratingbar.ProperRatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        app:selectedTicks="1"
-        app:symbolicTick="%"
-        app:symbolicTickNormalColor="#1fcc1e"
-        app:symbolicTickSelectedColor="#2e2c2c"
-        app:totalTicks="7"
+        app:prb_defaultRating="1"
+        app:prb_symbolicTick="%"
+        app:prb_symbolicTickNormalColor="#1fcc1e"
+        app:prb_symbolicTickSelectedColor="#2e2c2c"
+        app:prb_totalTicks="7"
         />
 
     <io.techery.properratingbar.ProperRatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:selectedTicks="1"
-        app:symbolicTick="*"
-        app:symbolicTickNormalColor="#1fcc1e"
-        app:symbolicTickSelectedColor="#2e2c2c"
-        app:totalTicks="7"
+        app:prb_defaultRating="1"
+        app:prb_symbolicTick="*"
+        app:prb_symbolicTickNormalColor="#1fcc1e"
+        app:prb_symbolicTickSelectedColor="#2e2c2c"
+        app:prb_totalTicks="7"
         />
 
     <io.techery.properratingbar.ProperRatingBar
@@ -58,12 +58,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        app:selectedTicks="4"
-        app:tickNormalDrawable="@drawable/ic_star_normal"
-        app:tickSelectedDrawable="@drawable/ic_star_selected"
-        app:tickMargin="3dp"
-        app:totalTicks="7"
-        app:usable="true"
+        app:prb_defaultRating="4"
+        app:prb_tickNormalDrawable="@drawable/ic_star_normal"
+        app:prb_tickSelectedDrawable="@drawable/ic_star_selected"
+        app:prb_tickSpacing="3dp"
+        app:prb_totalTicks="7"
+        app:prb_clickable="true"
         />
 
     <Button
