@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 
-version = "1.0"
 group = "io.techery"
 
 android {
