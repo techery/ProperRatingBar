@@ -36,6 +36,8 @@ Besides that, we needed to use symbols like '$' as rating bar ticks in our proje
 
 ## Installation
 
+Library's minSdkVersion is set to 14.
+
 We use jitpack, so you can use github sources in your module's `build.gradle` file:
 
 `compile 'com.github.techery:ProperRatingBar:xxxyyyzzzw'` where xxxyyyzzzw = last 10 digits of desired commit to build.
