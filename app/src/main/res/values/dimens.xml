@@ -3,4 +3,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="sample_caption_text_size">18sp</dimen>
+    <dimen name="sample_symbolic_tick_text_size">20sp</dimen>
+    <dimen name="sample_default_margin">16dp</dimen>
+    <dimen name="sample_prb_tick_spacing">5dp</dimen>
 </resources>

@@ -19,18 +19,20 @@ Whatever you need to display some rating or pricing category - just use ProperRa
 
 becomes this:
 
-![readme_screenshot1](https://raw.githubusercontent.com/techery/ProperRatingBar/master/readme_imgs/readme1.png)
+![Readme Screenshot 1](https://raw.githubusercontent.com/techery/ProperRatingBar/master/readme_imgs/readme1.png)
 
-## Code Example
+## Example
+See video below for possible usage scenarios.
 
-Will soon add more examples. Keep up!
+![Demo Gif](https://raw.githubusercontent.com/techery/ProperRatingBar/master/readme_imgs/ProperRatingBar_v001_demo.gif)
+
 
 ## Motivation
 Why bother and design our own element?
 
 Well, stock Android RatingBar lacks some styling attributes that you would expect from it and sometimes offers unexpected behavior.
 
-Besides that, we needed to use symbols like '$' as rating bar ticks in our project - none of third-patry libraries out there provides that ability.
+Besides that, we needed to use symbols like '$' as rating bar ticks in our project - none of third-patry libraries out there provides that functionality.
 
 ## Installation
 
@@ -48,42 +50,19 @@ repositories {
 ## API Reference
 So far we only support customising via xml layout.
 Here is the list of applicable attributes:
-```xml
-<!-- Total number of ticks to show. Default is '5' -->
-<attr name="prb_totalTicks" format="integer" />
++ ``prb_totalTicks``: total number of ticks to show. Default is '5'
++ ``prb_defaultRating``: use this to set rating from xml. Default is '3'
++ ``prb_clickable``: if set to 'true' - use will be able to change rating by clicking. Default is 'false'
 
-<!-- Use this to set rating from xml. Default is '3' -->
-<attr name="prb_defaultRating" format="integer" />
++ ``prb_symbolicTick``: symbol to be used as a tick. Default is '$'
++ ``android:textSize``: text size of symbolic tick. Default is '15sp'
++ ``android:textStyle``: text style of symbolic tick. Possible: 'bold', 'italic', 'normal'. Default is 'normal'
++ ``prb_symbolicTickNormalColor``: color of symbolic tick that is not selected (not rated). Default is '#FF000000' (black)
++ ``prb_symbolicTickSelectedColor``: color of symbolic tick that is selected (rated). Default is '#FF888888' (gray)
 
-<!-- If set to 'true' - use will be able to change rating by clicking. Default is 'false' -->
-<attr name="prb_clickable" format="boolean" />
-
-
-<!-- Symbol to be used as a tick. Default is '$' -->
-<attr name="prb_symbolicTick" format="string" />
-
-<!-- Text size of symbolic tick. Default is '15sp' -->
-<attr name="android:textSize" />
-
-<!-- Text style of symbolic tick. Possible: 'bold', 'italic', 'normal'. Default is 'normal'. -->
-<attr name="android:textStyle" />
-
-<!-- Color of symbolic tick that is not selected (not rated). Default is '#FF000000' (black). -->
-<attr name="prb_symbolicTickNormalColor" format="reference|color" />
-
-<!-- Color of symbolic tick that is selected (rated). Default is '#FF888888' (gray). -->
-<attr name="prb_symbolicTickSelectedColor" format="reference|color" />
-
-
-<!-- Drawable resource to use as a tick that is not selected (not rated). No default value. -->
-<attr name="prb_tickNormalDrawable" format="reference" />
-
-<!-- Drawable resource to use as a tick that is selected (rated). No default value. -->
-<attr name="prb_tickSelectedDrawable" format="reference" />
-
-<!-- Margin to be applied to tick drawables. Only applies to drawable-type ticks. Default is '1dp' (gray). -->
-<attr name="prb_tickSpacing" format="dimension" />
-```
++ ``prb_tickNormalDrawable``: drawable resource to use as a tick that is not selected (not rated). No default value
++ ``prb_tickSelectedDrawable``: drawable resource to use as a tick that is selected (rated). No default value
++ ``prb_tickSpacing``: margin to be applied to tick drawables. Only applies to drawable-type ticks. Default is '1dp' (gray)
 
 Also there's a number of methods to operate on ProperRatingBar programmatically:
 ```java
@@ -131,24 +110,24 @@ After that versionName will gain some more convincing and reliable number like "
 
 ## License
 
-The MIT License (MIT)
+    The MIT License (MIT)
 
-Copyright (c) 2015 Techery (http://techery.io/)
+    Copyright (c) 2015 Techery (http://techery.io/)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
