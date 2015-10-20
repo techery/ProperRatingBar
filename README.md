@@ -2,7 +2,7 @@
 Inspired by stock android RatingBar. Simpler, has features that original lacks.
 
 ## What is this about
-Whatever you need to display some rating or pricing category - just use ProperRatingBar and then this:
+Whatever you need to display some rating or pricing category - just use ProperRatingBar so this:
 ```xml
 <io.techery.properratingbar.ProperRatingBar
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@ becomes this:
 
 ## Code Example
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+Will soon add more examples. Keep up!
 
 ## Motivation
 Why bother and design our own element?
