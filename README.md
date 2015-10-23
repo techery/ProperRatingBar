@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ProperRatingBar-green.svg?style=flat)](http://android-arsenal.com/details/1/2669)
+
 # ProperRatingBar
 Inspired by stock android RatingBar. Simpler, has features that original lacks.
 
