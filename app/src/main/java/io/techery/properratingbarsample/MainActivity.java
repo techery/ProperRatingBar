@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RatingListener ratingListener = new RatingListener() {
         @Override
-        public void onRatePicked(int rating) {
+        public void onRatePicked(ProperRatingBar ratingBar) {
             Snackbar.make(rootView,
                     String.format(getString(R.string.rating_listener_snack_caption), ratingBar.getRating()),
                     Snackbar.LENGTH_SHORT).show();

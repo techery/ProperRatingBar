@@ -151,7 +151,7 @@ public class ProperRatingBar extends LinearLayout {
             lastSelectedTickIndex = (int) v.getTag(R.id.prb_child_tag_id);
             rating = lastSelectedTickIndex + 1;
             redrawChildren();
-            if (listener != null) listener.onRatePicked(rating);
+            if (listener != null) listener.onRatePicked(ProperRatingBar.this);
         }
     };
 
