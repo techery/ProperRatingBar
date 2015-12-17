@@ -40,9 +40,10 @@ Besides that, we needed to use symbols like '$' as rating bar ticks in our proje
 
 Library's minSdkVersion is set to 14.
 
-We use jitpack, so you can use github sources in your module's `build.gradle` file:
+We use jitpack, so you can obtain made-up library right from our github sources in your module's `build.gradle` file:
 
-`compile 'com.github.techery:ProperRatingBar:xxxyyyzzzw'` where xxxyyyzzzw = first 10 digits of desired commit to build.
+`compile 'com.github.techery:ProperRatingBar:v0.0.3'`
+
 Also you need to add jitpack as repository in the same file:
 ```groovy
 repositories {
