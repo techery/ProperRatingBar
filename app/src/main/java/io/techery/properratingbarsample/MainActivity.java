@@ -16,8 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.rootView)
     ViewGroup rootView;
-    @Bind(R.id.ratingBar)
-    ProperRatingBar ratingBar;
+    @Bind(R.id.upperRatingBar)
+    ProperRatingBar upperRatingBar;
+    @Bind(R.id.lowerRatingBar)
+    ProperRatingBar lowerRatingBar;
+
+    private String[] ticksArray = new String[] {"$", "★"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +31,24 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //
-        ratingBar.setListener(ratingListener);
+        lowerRatingBar.setListener(ratingListener);
+    }
+
+    @OnClick(R.id.toggleTick) void toggleTick() { // here goes shit-code. No time to do properly
+        String tick;
+        if (upperRatingBar.getSymbolicTick().equals(ticksArray[0])) tick = ticksArray[1];
+        else tick = ticksArray[0];
+        upperRatingBar.setSymbolicTick(tick);
     }
 
     @OnClick(R.id.getRatingButton) void getRatingClicked() {
         Snackbar.make(rootView,
-                String.format(getString(R.string.get_rating_snack_caption_format), ratingBar.getRating()),
+                String.format(getString(R.string.get_rating_snack_caption_format), lowerRatingBar.getRating()),
                 Snackbar.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.setRatingButton) void setRatingClicked() {
-        ratingBar.setRating(2);
+        lowerRatingBar.setRating(2);
         Snackbar.make(rootView, R.string.set_rating_snack_caption, Snackbar.LENGTH_SHORT).show();
     }
 

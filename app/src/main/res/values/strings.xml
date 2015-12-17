@@ -4,6 +4,7 @@
 
     <string name="symbolic_tick_prb_caption">ProperRatingBar with symbolic tick:</string>
     <string name="drawable_tick_prb_caption">ProperRatingBar with drawable tick, with attached listener, clickable:</string>
+    <string name="switch_tick_button_caption">Switch tick</string>
     <string name="get_rating_button_caption">Get rating</string>
     <string name="set_rating_button_caption">Set rating to \'2\'</string>
     <string name="set_rating_snack_caption">Rating was set to \'2\'</string>
