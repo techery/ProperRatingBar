@@ -23,6 +23,7 @@
         />
 
     <io.techery.properratingbar.ProperRatingBar
+        android:id="@+id/upperRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -36,6 +37,15 @@
         app:prb_totalTicks="5"
         />
 
+    <Button
+        android:id="@+id/toggleTick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/switch_tick_button_caption"
+        android:layout_marginBottom="15dp"
+        />
+
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +54,7 @@
         />
 
     <io.techery.properratingbar.ProperRatingBar
-        android:id="@+id/ratingBar"
+        android:id="@+id/lowerRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

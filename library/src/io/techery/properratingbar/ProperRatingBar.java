@@ -74,7 +74,6 @@ public class ProperRatingBar extends LinearLayout {
     public ProperRatingBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
-        addChildren(context);
     }
 
     private void init(Context context, AttributeSet attrs) {
@@ -82,12 +81,12 @@ public class ProperRatingBar extends LinearLayout {
         //
         totalTicks = a.getInt(R.styleable.ProperRatingBar_prb_totalTicks, DF_TOTAL_TICKS);
         rating = a.getInt(R.styleable.ProperRatingBar_prb_defaultRating, DF_DEFAULT_TICKS);
-        if (rating > totalTicks) rating = totalTicks;
-        lastSelectedTickIndex = rating - 1;
+        //
         isClickable = a.getBoolean(R.styleable.ProperRatingBar_prb_clickable, DF_CLICKABLE);
         //
         symbolicTick = a.getString(R.styleable.ProperRatingBar_prb_symbolicTick);
         if (symbolicTick == null) symbolicTick = context.getString(DF_SYMBOLIC_TICK_RES);
+        //
         customTextSize = a.getDimensionPixelSize(R.styleable.ProperRatingBar_android_textSize,
                 context.getResources().getDimensionPixelOffset(DF_SYMBOLIC_TEXT_SIZE_RES));
         customTextStyle = a.getInt(R.styleable.ProperRatingBar_android_textStyle, DF_SYMBOLIC_TEXT_STYLE);
@@ -101,14 +100,24 @@ public class ProperRatingBar extends LinearLayout {
         tickSpacing = a.getDimensionPixelOffset(R.styleable.ProperRatingBar_prb_tickSpacing,
                 context.getResources().getDimensionPixelOffset(DF_TICK_SPACING_RES));
         //
-        if (tickNormalDrawable == null || tickSelectedDrawable == null) {
-            useSymbolicTick = true;
-        }
+        afterInit();
         //
         a.recycle();
     }
 
+    private void afterInit() {
+        if (rating > totalTicks) rating = totalTicks;
+        lastSelectedTickIndex = rating - 1;
+        //
+        if (tickNormalDrawable == null || tickSelectedDrawable == null) {
+            useSymbolicTick = true;
+        }
+        //
+        addChildren(this.getContext());
+    }
+
     private void addChildren(Context context) {
+        this.removeAllViews();
         for (int i = 0; i < totalTicks; i++) {
             addChild(context, i);
         }
@@ -239,7 +248,7 @@ public class ProperRatingBar extends LinearLayout {
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    // them getters and setters methods
+    // Them getter and setter methods
     ///////////////////////////////////////////////////////////////////////////
 
     /**
@@ -254,9 +263,14 @@ public class ProperRatingBar extends LinearLayout {
     /**
      * Set the {@link RatingListener} to be called when user taps rating bar's ticks
      * @param listener listener to set
+     *
+     * @throws IllegalArgumentException if listener is <b>null</b>
      */
     public void setListener(RatingListener listener) {
+        if (listener == null) throw new IllegalArgumentException("listener cannot be null!");
+
         this.listener = listener;
+        this.isClickable = true;
     }
 
     /**
@@ -283,5 +297,14 @@ public class ProperRatingBar extends LinearLayout {
         this.rating = rating;
         lastSelectedTickIndex = rating - 1;
         redrawChildren();
+    }
+
+    public void setSymbolicTick(String tick) {
+        this.symbolicTick = tick;
+        afterInit();
+    }
+
+    public String getSymbolicTick() {
+        return this.symbolicTick;
     }
 }
