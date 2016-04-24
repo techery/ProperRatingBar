@@ -42,7 +42,7 @@ Library's minSdkVersion is set to 14.
 
 We use jitpack, so you can obtain made-up library right from our github sources in your module's `build.gradle` file:
 
-`compile 'com.github.techery:ProperRatingBar:v0.0.3'`
+`compile 'com.github.techery:ProperRatingBar:{version_name}'` where `version_name` are digits from [here](https://github.com/techery/ProperRatingBar/releases/latest) (e.g. `0.0.3`)
 
 Also you need to add jitpack as repository in the same file:
 ```groovy
@@ -108,18 +108,21 @@ No test coverage is supplied so far - might be added later.
 
 ## Versions
 
-Current version is set to 0.0.3
+Actual version can be found [here](https://github.com/techery/ProperRatingBar/releases/latest)
+
 Be warned that given code is likely to be refactored and partly re-done (including possible API changes with no backward-compatibility).
 
 ## Contribution
 
-PR's are welcome. Just follow the general code style (both xml and java). Proper code style setup might be added later and included to repository.
+PR's are welcome. Just follow the general code style (both xml and java).
+
+Proper code style setup might be added later and included to repository.
 
 ## License
 
     The MIT License (MIT)
 
-    Copyright (c) 2015 Techery (http://techery.io/)
+    Copyright (c) 2016 Techery (http://techery.io/)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
