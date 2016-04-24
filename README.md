@@ -108,10 +108,12 @@ No test coverage is supplied so far - might be added later.
 
 ## Versions
 
-Current version is set to 0.0.1
-Consider this to be itinial commit meaning that given code is likely to be refactored and partly re-done (including API changing with no backward-compatibility).
+Current version is set to 0.0.3
+Be warned that given code is likely to be refactored and partly re-done (including possible API changes with no backward-compatibility).
 
-After that versionName will gain some more convincing and reliable number like "1.0" and API will be frozen.
+## Contribution
+
+PR's are welcome. Just follow the general code style (both xml and java). Proper code style setup might be added later and included to repository.
 
 ## License
 
