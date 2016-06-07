@@ -270,7 +270,6 @@ public class ProperRatingBar extends LinearLayout {
         if (listener == null) throw new IllegalArgumentException("listener cannot be null!");
 
         this.listener = listener;
-        this.clickable = true;
     }
 
     /**
