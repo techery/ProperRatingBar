@@ -112,26 +112,26 @@ public class ProperRatingBar extends LinearLayout {
             useSymbolicTick = true;
         }
         //
-        addChildren(this.getContext());
+        addTicks(this.getContext());
     }
 
-    private void addChildren(Context context) {
+    private void addTicks(Context context) {
         this.removeAllViews();
         for (int i = 0; i < totalTicks; i++) {
-            addChild(context, i);
+            addTick(context, i);
         }
-        redrawChildren();
+        redrawTicks();
     }
 
-    private void addChild(Context context, int position) {
+    private void addTick(Context context, int position) {
         if (useSymbolicTick) {
-            addSymbolicChild(context, position);
+            addSymbolicTick(context, position);
         } else {
-            addDrawableChild(context, position);
+            addDrawableTick(context, position);
         }
     }
 
-    private void addSymbolicChild(Context context, int position) {
+    private void addSymbolicTick(Context context, int position) {
         TextView tv = new TextView(context);
         tv.setText(symbolicTick);
         tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, customTextSize);
@@ -145,7 +145,7 @@ public class ProperRatingBar extends LinearLayout {
         this.addView(tv);
     }
 
-    private void addDrawableChild(Context context, int position) {
+    private void addDrawableTick(Context context, int position) {
         ImageView iv = new ImageView(context);
         iv.setPadding(tickSpacing, tickSpacing, tickSpacing, tickSpacing);
         if (clickable) {
@@ -158,36 +158,36 @@ public class ProperRatingBar extends LinearLayout {
     private View.OnClickListener mTickClickedListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            lastSelectedTickIndex = (int) v.getTag(R.id.prb_child_tag_id);
+            lastSelectedTickIndex = (int) v.getTag(R.id.prb_tick_tag_id);
             rating = lastSelectedTickIndex + 1;
-            redrawChildren();
+            redrawTicks();
             if (listener != null) listener.onRatePicked(ProperRatingBar.this);
         }
     };
 
-    private void redrawChildren() {
         for (int i = 0; i < totalTicks; i++) {
             if (useSymbolicTick) {
                 redrawChildSelection((TextView) ProperRatingBar.this.getChildAt(i), i <= lastSelectedTickIndex);
             } else {
                 redrawChildSelection((ImageView) ProperRatingBar.this.getChildAt(i), i <= lastSelectedTickIndex);
+    private void redrawTicks() {
             }
         }
     }
 
-    private void redrawChildSelection(ImageView child, boolean isSelected) {
+    private void redrawTickSelection(ImageView tick, boolean isSelected) {
         if (isSelected) {
-            child.setImageDrawable(tickSelectedDrawable);
+            tick.setImageDrawable(tickSelectedDrawable);
         } else {
-            child.setImageDrawable(tickNormalDrawable);
+            tick.setImageDrawable(tickNormalDrawable);
         }
     }
 
-    private void redrawChildSelection(TextView child, boolean isSelected) {
+    private void redrawTickSelection(TextView tick, boolean isSelected) {
         if (isSelected) {
-            child.setTextColor(customTextSelectedColor);
+            tick.setTextColor(customTextSelectedColor);
         } else {
-            child.setTextColor(customTextNormalColor);
+            tick.setTextColor(customTextNormalColor);
         }
     }
 
@@ -305,7 +305,7 @@ public class ProperRatingBar extends LinearLayout {
         if (rating  > this.totalTicks) rating = totalTicks;
         this.rating = rating;
         lastSelectedTickIndex = rating - 1;
-        redrawChildren();
+        redrawTicks();
     }
 
     public void setSymbolicTick(String tick) {

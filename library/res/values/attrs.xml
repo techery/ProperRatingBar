@@ -63,5 +63,5 @@
         <attr name="prb_tickSpacing" format="dimension" />
     </declare-styleable>
 
-    <item name="prb_child_tag_id" type="id" />
+    <item name="prb_tick_tag_id" type="id" />
 </resources>
