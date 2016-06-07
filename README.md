@@ -71,6 +71,16 @@ Here is the list of applicable attributes:
 
 Also there's a number of methods to operate on ProperRatingBar programmatically:
 ```java
+
+public boolean isClickable();
+
+/**
+ * Nifty sugar method to just toggle clickable to opposite state.
+ */
+public void toggleClickable();
+
+public void setClickable(boolean clickable);
+
 /**
 * Get the attached {@link RatingListener}
 * @return listener or null if none was set
