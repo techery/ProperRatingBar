@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     ProperRatingBar upperRatingBar;
     @Bind(R.id.lowerRatingBar)
     ProperRatingBar lowerRatingBar;
+    @Bind(R.id.toggleClicksEnabledButton)
+    Button toggleClicksEnabledButton;
 
     private String[] ticksArray = new String[] {"$", "★"};
 
@@ -50,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.setRatingButton) void setRatingClicked() {
         lowerRatingBar.setRating(2);
         Snackbar.make(rootView, R.string.set_rating_snack_caption, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.toggleClicksEnabledButton) void toggleClicksEnabled() {
+        lowerRatingBar.toggleClickable();
+        toggleClicksEnabledButton.setText(lowerRatingBar.isClickable() ?
+                R.string.disable_clicks_button_caption : R.string.enable_clicks_button_caption);
+        Snackbar.make(rootView,
+                lowerRatingBar.isClickable() ? R.string.enabled_clicks_snack_caption :
+                        R.string.disabled_clicks_snack_caption,
+                Snackbar.LENGTH_SHORT).show();
     }
 
     private RatingListener ratingListener = new RatingListener() {

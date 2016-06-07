@@ -7,6 +7,10 @@
     <string name="switch_tick_button_caption">Switch tick</string>
     <string name="get_rating_button_caption">Get rating</string>
     <string name="set_rating_button_caption">Set rating to \'2\'</string>
+    <string name="disable_clicks_button_caption">Disable clicks</string>
+    <string name="enable_clicks_button_caption">Enable clicks</string>
+    <string name="disabled_clicks_snack_caption">Clicks disabled</string>
+    <string name="enabled_clicks_snack_caption">Clicks enabled</string>
     <string name="set_rating_snack_caption">Rating was set to \'2\'</string>
     <string name="get_rating_snack_caption_format">Current rating = \'%d\'</string>
     <string name="rating_listener_snack_caption">RatingListener: current rating = \'%d\'</string>

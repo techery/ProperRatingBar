@@ -88,5 +88,13 @@
             android:layout_weight="1"
             android:text="@string/set_rating_button_caption"
             />
+
+        <Button
+            android:id="@+id/toggleClicksEnabledButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/disable_clicks_button_caption"
+            />
     </LinearLayout>
 </LinearLayout>
