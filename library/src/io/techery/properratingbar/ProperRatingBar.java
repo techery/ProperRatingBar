@@ -211,6 +211,7 @@ public class ProperRatingBar extends LinearLayout {
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         savedState.rating = rating;
+        savedState.clickable = clickable;
 
         return savedState;
     }
@@ -231,6 +232,7 @@ public class ProperRatingBar extends LinearLayout {
     static class SavedState extends BaseSavedState {
 
         int rating;
+        boolean clickable;
 
         SavedState(Parcelable superState) {
             super(superState);
@@ -239,12 +241,14 @@ public class ProperRatingBar extends LinearLayout {
         private SavedState(Parcel in) {
             super(in);
             this.rating = in.readInt();
+            this.clickable = in.readByte() == 1;
         }
 
         @Override
         public void writeToParcel(Parcel out, int flags) {
             super.writeToParcel(out, flags);
             out.writeInt(this.rating);
+            out.writeByte((byte) (this.clickable ? 1 : 0));
         }
 
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
