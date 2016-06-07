@@ -138,21 +138,24 @@ public class ProperRatingBar extends LinearLayout {
         if (customTextStyle != 0) {
             tv.setTypeface(Typeface.DEFAULT, customTextStyle);
         }
-        if (clickable) {
-            tv.setTag(R.id.prb_child_tag_id, position);
-            tv.setOnClickListener(mTickClickedListener);
-        }
+        updateTicksClickParameters(tv, position);
         this.addView(tv);
     }
 
     private void addDrawableTick(Context context, int position) {
         ImageView iv = new ImageView(context);
         iv.setPadding(tickSpacing, tickSpacing, tickSpacing, tickSpacing);
-        if (clickable) {
-            iv.setTag(R.id.prb_child_tag_id, position);
-            iv.setOnClickListener(mTickClickedListener);
-        }
+        updateTicksClickParameters(iv, position);
         this.addView(iv);
+    }
+
+    private void updateTicksClickParameters(View tick, int position) {
+        if (clickable) {
+            tick.setTag(R.id.prb_tick_tag_id, position);
+            tick.setOnClickListener(mTickClickedListener);
+        } else {
+            tick.setOnClickListener(null);
+        }
     }
 
     private View.OnClickListener mTickClickedListener = new OnClickListener() {
@@ -165,14 +168,19 @@ public class ProperRatingBar extends LinearLayout {
         }
     };
 
-        for (int i = 0; i < totalTicks; i++) {
-            if (useSymbolicTick) {
-                redrawChildSelection((TextView) ProperRatingBar.this.getChildAt(i), i <= lastSelectedTickIndex);
-            } else {
-                redrawChildSelection((ImageView) ProperRatingBar.this.getChildAt(i), i <= lastSelectedTickIndex);
     private void redrawTicks() {
+        iterateTicks(new TicksIterator() {
+            @Override
+            public void onTick(View tick, int position) {
+                if (useSymbolicTick) {
+                    redrawTickSelection((TextView) tick,
+                            position <= lastSelectedTickIndex);
+                } else {
+                    redrawTickSelection((ImageView) tick,
+                            position <= lastSelectedTickIndex);
+                }
             }
-        }
+        });
     }
 
     private void redrawTickSelection(ImageView tick, boolean isSelected) {
@@ -263,8 +271,29 @@ public class ProperRatingBar extends LinearLayout {
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    // Them getter and setter methods
+    // Essential public methods
     ///////////////////////////////////////////////////////////////////////////
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    /**
+     * Nifty sugar method to just toggle clickable to opposite state.
+     */
+    public void toggleClickable() {
+        setClickable(!clickable);
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+        iterateTicks(new TicksIterator() {
+            @Override
+            public void onTick(View tick, int position) {
+                updateTicksClickParameters(tick, position);
+            }
+        });
+    }
 
     /**
      * Get the attached {@link RatingListener}
