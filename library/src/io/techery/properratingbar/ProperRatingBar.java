@@ -57,7 +57,7 @@ public class ProperRatingBar extends LinearLayout {
 
     private int totalTicks;
     private int lastSelectedTickIndex;
-    private boolean isClickable;
+    private boolean clickable;
     private String symbolicTick;
     private int customTextSize;
     private int customTextStyle;
@@ -82,7 +82,7 @@ public class ProperRatingBar extends LinearLayout {
         totalTicks = a.getInt(R.styleable.ProperRatingBar_prb_totalTicks, DF_TOTAL_TICKS);
         rating = a.getInt(R.styleable.ProperRatingBar_prb_defaultRating, DF_DEFAULT_TICKS);
         //
-        isClickable = a.getBoolean(R.styleable.ProperRatingBar_prb_clickable, DF_CLICKABLE);
+        clickable = a.getBoolean(R.styleable.ProperRatingBar_prb_clickable, DF_CLICKABLE);
         //
         symbolicTick = a.getString(R.styleable.ProperRatingBar_prb_symbolicTick);
         if (symbolicTick == null) symbolicTick = context.getString(DF_SYMBOLIC_TICK_RES);
@@ -139,7 +139,7 @@ public class ProperRatingBar extends LinearLayout {
         if (customTextStyle != 0) {
             tv.setTypeface(Typeface.DEFAULT, customTextStyle);
         }
-        if (isClickable) {
+        if (clickable) {
             tv.setTag(R.id.prb_child_tag_id, position);
             tv.setOnClickListener(mTickClickedListener);
         }
@@ -149,7 +149,7 @@ public class ProperRatingBar extends LinearLayout {
     private void addDrawableChild(Context context, int position) {
         ImageView iv = new ImageView(context);
         iv.setPadding(tickSpacing, tickSpacing, tickSpacing, tickSpacing);
-        if (isClickable) {
+        if (clickable) {
             iv.setTag(R.id.prb_child_tag_id, position);
             iv.setOnClickListener(mTickClickedListener);
         }
@@ -270,7 +270,7 @@ public class ProperRatingBar extends LinearLayout {
         if (listener == null) throw new IllegalArgumentException("listener cannot be null!");
 
         this.listener = listener;
-        this.isClickable = true;
+        this.clickable = true;
     }
 
     /**
