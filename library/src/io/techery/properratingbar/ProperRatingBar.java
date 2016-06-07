@@ -7,7 +7,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -255,7 +254,6 @@ public class ProperRatingBar extends LinearLayout {
      * Get the attached {@link RatingListener}
      * @return listener or null if none was set
      */
-    @Nullable
     public RatingListener getListener() {
         return listener;
     }
