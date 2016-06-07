@@ -191,6 +191,18 @@ public class ProperRatingBar extends LinearLayout {
         }
     }
 
+    private void iterateTicks(TicksIterator iterator) {
+        if (iterator == null) throw new IllegalArgumentException("Iterator can't be null!");
+
+        for (int i = 0; i < getChildCount(); i++) {
+            iterator.onTick(getChildAt(i), i);
+        }
+    }
+
+    private interface TicksIterator {
+        void onTick(View tick, int position);
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     // Saving and restoring state
     ///////////////////////////////////////////////////////////////////////////
