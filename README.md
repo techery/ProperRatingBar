@@ -38,11 +38,13 @@ Besides that, we needed to use symbols like '$' as rating bar ticks in our proje
 
 ## Installation
 
+[![](https://jitpack.io/v/techery/properratingbar.svg)](https://jitpack.io/#techery/properratingbar)
+
 Library's minSdkVersion is set to 14.
 
 We use jitpack, so you can obtain made-up library right from our github sources in your module's `build.gradle` file:
 
-`compile 'com.github.techery:ProperRatingBar:{version_name}'` where `version_name` are digits from [here](https://github.com/techery/ProperRatingBar/releases/latest) (e.g. `0.0.3`)
+`compile 'com.github.techery:ProperRatingBar:{version_name}'`
 
 Also you need to add jitpack as repository in the same file:
 ```groovy
