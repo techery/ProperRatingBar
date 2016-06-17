@@ -44,7 +44,7 @@ Library's minSdkVersion is set to 14.
 
 We use jitpack, so you can obtain made-up library right from our github sources in your module's `build.gradle` file:
 
-`compile 'com.github.techery:ProperRatingBar:{version_name}'`
+`compile 'com.github.techery:properratingbar:{version_name}'`
 
 Also you need to add jitpack as repository in the same file:
 ```groovy
